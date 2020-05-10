@@ -1,0 +1,25 @@
+surface Linescratch (
+	color Cin=1,
+    float octave = 8,
+    float amp = 2.0,
+    float angle = 15.0,
+    output	color Cout=1,
+    output float resultStripes = 0,
+)
+{   
+    float rot = radians(angle);
+    point d=transform("shader",P);
+    point dd = rotate(d, rot, point(0,0,0), point(0,0,1));
+    float mag=0;
+    int i;
+    float f=1;
+    point PP = point(dd[0]*2, dd[1]*100, dd[2]*0.1);
+
+    for(i=1;i<octave;i++)
+	{
+        mag+=abs((float)noise("perlin",3*PP*f))/f;
+		f*=amp;
+	}
+    Cout = mag;
+    resultStripes = mag;
+}

@@ -1,0 +1,25 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.8.2.pixar1697a56
+# options: 
+shader uvshader
+oparam	color	resultRGB	0 0 0		%read{2147483647,-1} %write{4,4}
+global	float	u	%read{0,1} %write{2147483647,-1}
+global	float	v	%read{2,3} %write{2147483647,-1}
+local	float	r	%read{4,4} %write{1,1}
+local	float	g	%read{4,4} %write{3,3}
+temp	float	$tmp1	%read{1,1} %write{0,0}
+temp	float	$tmp2	%read{3,3} %write{2,2}
+const	float	$const1	0		%read{4,4} %write{2147483647,-1}
+code ___main___
+# E:\\MSC_CAVE_Files\\RendermanProjects\\RenderMan_Kekoukele\\Shaders\\uvshader.osl:5
+# float g=(v - floor(v));
+	floor		$tmp1 u 	%filename{"E:\\MSC_CAVE_Files\\RendermanProjects\\RenderMan_Kekoukele\\Shaders\\uvshader.osl"} %line{5} %argrw{"wr"}
+	sub		r u $tmp1 	%argrw{"wrr"}
+# E:\\MSC_CAVE_Files\\RendermanProjects\\RenderMan_Kekoukele\\Shaders\\uvshader.osl:6
+# resultRGB=color(r,g,0.0);
+	floor		$tmp2 v 	%line{6} %argrw{"wr"}
+	sub		g v $tmp2 	%argrw{"wrr"}
+# E:\\MSC_CAVE_Files\\RendermanProjects\\RenderMan_Kekoukele\\Shaders\\uvshader.osl:7
+# }
+	color		resultRGB r g $const1 	%line{7} %argrw{"wrrr"}
+	end

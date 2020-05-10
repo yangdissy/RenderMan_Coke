@@ -1,0 +1,17 @@
+Pixar PhotoRealistic RenderMan 23.2
+copyright (c) 1988-2020 Pixar.
+linked Mon Mar 02 20:15:27 2020 Pacific Standard Time @2046737
+build windows10_x86-64_vc14icc190_external_release
+
+Rendered on Sun May 10 22:06:37 GMT Daylight Time 2020
+Rendering at 1280x720 pixels, 256 maxsamples
+	"__NULL__Ci" (mode = Ci_variance_auto, type = null)
+	"__NULL__a" (mode = a_variance_auto, type = null)
+	"screen.exr" (mode = Ci,a, type = it)
+
+       Max resident mem: 6167.52 MB
+       Page faults: 1630842, Peak pagefile usage: 11270.91 MB, Peak paged pool usage:  0.38 MB
+
+       Real time:     00:51
+       User time:     04:39
+       Sys time:      00:10
