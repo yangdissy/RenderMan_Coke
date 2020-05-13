@@ -123,6 +123,7 @@ def Coke():
 	})
 	ri.Bxdf( 'PxrDisney','bxdf', { 
                         'reference color baseColor' : ['mix_baseColor:resultRGB'],
+						#'color baseColor' : [1.0,1.0,1.0],
 						"float metallic" : [0.8],
                         "float roughness" : [0.5],
                         "float specular" : [0.4] 
@@ -155,6 +156,7 @@ def Coke():
 	'int invertT' : [0]})
 	ri.Bxdf( 'PxrDisney','bxdf', { 
                         'reference color baseColor' : [ 'mix_baseColor:resultRGB'],
+						#'color baseColor' : [1.0,1.0,1.0],
 						"float metallic" : [0.8],
                         "float roughness" : [0.5],
                         "float specular" : [0.4] ,
@@ -204,7 +206,7 @@ def main(filename,shadingrate=10,pixelvar=0.1,
 
 	# FILENAME DISPLAY Type Output format
 	ri.Display('screen.exr', 'it', 'rgba')
-	ri.Format(1280,720,1)
+	ri.Format(1920,1080,1)
 
 
 	#ri.Hider('raytrace' ,{'int incremental' :[1]})
@@ -212,7 +214,7 @@ def main(filename,shadingrate=10,pixelvar=0.1,
 	#ri.ShadingRate(shadingrate)
 	#ri.PixelVariance (pixelvar)
 
-	ri.Hider('raytrace' ,{'int incremental' :[1],'int maxsamples' : [256]})
+	ri.Hider('raytrace' ,{'int incremental' :[1],'int maxsamples' : [1024]})
 	ri.ShadingRate(shadingrate)
 	ri.PixelVariance (pixelvar)
 	ri.Integrator (integrator ,'integrator',integratorParams)
@@ -258,7 +260,7 @@ def main(filename,shadingrate=10,pixelvar=0.1,
 	ri.Rotate(-90,1,0,0)
 	ri.Rotate(0,0,0,1)
 	ri.Light( 'PxrDomeLight', 'domeLight', { 
-			  'string lightColorMap'  : 'veranda_1k.tx'
+			'string lightColorMap'  : 'veranda_1k.tx',
 	})
 	ri.AttributeEnd()
 	ri.TransformEnd()

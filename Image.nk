@@ -1,0 +1,305 @@
+#! D:/Program Files/Nuke11.2v4/nuke-11.2.4.dll -nx
+version 11.2 v4
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="1904" h="1001" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1241" stretch="1"/>
+            <splitter orientation="2">
+                <split size="559"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="394"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Image.nk
+ frame 75
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Coke_002.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read3
+ xpos -871
+ ypos -169
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Coke_001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ origset true
+ name Read2
+ xpos -981
+ ypos -165
+}
+Read {
+ inputs 0
+ file_type png
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Coke_001.png
+ format "1280 720 0 0 1280 720 1 HD_720"
+ origset true
+ name Read1
+ xpos -764
+ ypos -167
+}
+Write {
+ inputs 0
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Top_Of_Can.exr_001.png
+ file_type png
+ checkHashOnRead false
+ version 2
+ name Write2
+ xpos -956
+ ypos 106
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Top_Of_Can.exr
+ format "960 540 0 0 960 540 1 "
+ origset true
+ name Read6
+ xpos -131
+ ypos -169
+}
+Crop {
+ box {239.5 71 724.5 349.5}
+ reformat true
+ crop false
+ name Crop1
+ xpos -131
+ ypos -50
+}
+Reformat {
+ format "960 540 0 0 960 540 1 "
+ name Reformat1
+ xpos -131
+ ypos 18
+}
+Write {
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Top_Of_Can.exr_001.png
+ file_type png
+ checkHashOnRead false
+ version 3
+ name Write1
+ xpos -131
+ ypos 138
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Bottom_Of_Can.exr
+ format "960 540 0 0 960 540 1 "
+ origset true
+ name Read5
+ xpos 241
+ ypos -169
+}
+Crop {
+ box {244 36 720 312}
+ reformat true
+ crop false
+ name Crop5
+ xpos 240
+ ypos -47
+}
+Reformat {
+ format "960 540 0 0 960 540 1 "
+ name Reformat3
+ xpos 240
+ ypos 21
+}
+Write {
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Bottom_Of_Can_001.png
+ file_type png
+ checkHashOnRead false
+ version 4
+ name Write4
+ xpos 240
+ ypos 125
+}
+Sharpen {
+ name Sharpen1
+ xpos 240
+ ypos 169
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Body_01.exr
+ format "960 540 0 0 960 540 1 "
+ origset true
+ name Read4
+ xpos 52
+ ypos -172
+}
+Crop {
+ box {0 0 960 540}
+ reformat true
+ crop false
+ name Crop3
+ xpos 52
+ ypos -60
+}
+Reformat {
+ format "960 540 0 0 960 540 1 "
+ name Reformat2
+ xpos 52
+ ypos 8
+}
+Write {
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Body_001.mov
+ file_type mov
+ mov64_codec mp4v
+ mov64_advanced 1
+ mov64_bitrate 20000
+ mov64_bitrate_tolerance 40000000
+ mov64_quality_min 2
+ mov64_quality_max 31
+ mov64_gop_size 12
+ mov64_b_frames 0
+ checkHashOnRead false
+ version 4
+ name Write3
+ xpos 52
+ ypos 128
+}
+Constant {
+ inputs 0
+ channels rgb
+ format "1024 512 0 0 1024 512 1 hehe"
+ name Constant1
+ xpos 482
+ ypos -147
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Normalmap02.exr
+ format "960 540 0 0 960 540 1 "
+ origset true
+ name Read8
+ xpos 1001
+ ypos -174
+}
+set N9491f880 [stack 0]
+Crop {
+ box {222 20 734 532}
+ reformat true
+ crop false
+ name Crop4
+ xpos 1001
+ ypos -53
+}
+Reformat {
+ format "960 540 0 0 960 540 1 "
+ name Reformat5
+ xpos 1001
+ ypos -14
+ disable true
+}
+Write {
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Normalmap02.png
+ file_type png
+ checkHashOnRead false
+ version 6
+ name Write6
+ xpos 1001
+ ypos 117
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Normalmap01.exr
+ format "960 540 0 0 960 540 1 "
+ origset true
+ name Read7
+ xpos 668
+ ypos -160
+}
+Crop {
+ box {222 20 734 532}
+ reformat true
+ crop false
+ name Crop2
+ xpos 668
+ ypos -62
+}
+Reformat {
+ format "960 540 0 0 960 540 1 "
+ name Reformat4
+ xpos 668
+ ypos -21
+ disable true
+}
+Write {
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/Normalmap01.PNG
+ file_type png
+ checkHashOnRead false
+ version 5
+ name Write5
+ xpos 668
+ ypos 108
+}
+push $N9491f880
+Viewer {
+ frame 75
+ frame_range 1-100
+ name Viewer1
+ xpos -66
+ ypos 252
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/table01.exr
+ format "960 540 0 0 960 540 1 "
+ origset true
+ name Read9
+ xpos 1274
+ ypos -173
+}
+Read {
+ inputs 0
+ file_type exr
+ file E:/MSC_CAVE_Files/RendermanProjects/RenderMan_Coke/Images/table02.exr
+ format "960 540 0 0 960 540 1 "
+ origset true
+ name Read10
+ selected true
+ xpos 1442
+ ypos -159
+}
