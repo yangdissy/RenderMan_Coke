@@ -2,6 +2,7 @@
 The aim of this project was to model believable watches and render it with proper shading and lighting according to reference.
 
 ![render resualt001](Images/Coke_001.png)   
+![render resualt002](Images/Coke_002.png)  
 
 ## Requirements:
 
